@@ -2,5 +2,7 @@
     "cSpell.words": [
         "aistudio",
         "erniebot"
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.autoImportCompletions": true
 }
