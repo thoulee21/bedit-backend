@@ -2,10 +2,8 @@ import json
 import os
 
 import erniebot
-import user_agents
 from flask import Flask, Response, request, stream_with_context
 from flask_cors import cross_origin
-from markdown import markdown
 from utils.loguru_logger import logger
 
 erniebot.api_type = "aistudio"
@@ -63,13 +61,7 @@ def prompt():
     if stream:
         return Response(stream_with_context(generate()))
     else:
-        # 如果访问来自于浏览器，返回markdown格式的文本
-        ua = user_agents.parse(request.user_agent.string)
-
-        if ua.is_bot:
-            return response.get_result()
-        else:
-            return markdown(response.get_result())
+        return response.get_result()
 
 
 if __name__ == '__main__':
