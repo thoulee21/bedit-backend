@@ -4,6 +4,7 @@ import os
 import erniebot
 import user_agents
 from flask import Flask, Response, request, stream_with_context
+from flask_cors import cross_origin
 from markdown import markdown
 from utils.loguru_logger import logger
 
@@ -23,6 +24,7 @@ def index():
 
 
 @app.route('/chat')
+@cross_origin()
 def prompt():
     prompt = request.args.get("prompt")
     stream_raw = request.args.get("stream", 'false')

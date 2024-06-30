@@ -9,6 +9,7 @@ dependencies = [
     "markdown>=3.6",
     "user-agents>=2.2.0",
     "loguru>=0.7.2",
+    "flask-cors>=4.0.1",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
