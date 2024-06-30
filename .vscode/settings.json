@@ -1,7 +1,10 @@
 {
     "cSpell.words": [
         "aistudio",
-        "erniebot"
+        "erniebot",
+        "levelname",
+        "levelno",
+        "sanic"
     ],
     "python.analysis.typeCheckingMode": "off",
     "python.analysis.autoImportCompletions": true

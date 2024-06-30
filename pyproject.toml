@@ -2,19 +2,21 @@
 name = "bedit-backend"
 version = "0.1.0"
 description = "Default template for PDM package"
-authors = [
-    {name = "thoulee", email = "thou_lee@outlook.com"},
-]
+authors = [{ name = "thoulee", email = "thou_lee@outlook.com" }]
 dependencies = [
     "erniebot>=0.5.7",
-    "flask>=3.0.3",
+    "flask[async]>=3.0.3",
     "markdown>=3.6",
     "user-agents>=2.2.0",
+    "loguru>=0.7.2",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 
 [tool.pdm]
 distribution = false
+
+[tool.pdm.scripts]
+server = "python ./src/bedit_backend/server.py"

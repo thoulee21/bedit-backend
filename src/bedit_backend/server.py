@@ -5,6 +5,7 @@ import erniebot
 import user_agents
 from flask import Flask, Response, request, stream_with_context
 from markdown import markdown
+from utils.loguru_logger import logger
 
 erniebot.api_type = "aistudio"
 erniebot.access_token = os.environ.get("ERNIEBOT_ACCESS_TOKEN")
@@ -27,6 +28,9 @@ def prompt():
     stream_raw = request.args.get("stream", 'false')
     # preferred to be false by default
     stream = stream_raw.lower() in ['true', '1', 'yes', 'y', 't']
+    logger.info(
+        f"prompt: {prompt}, stream: {stream}, stream_raw: {stream_raw}"
+    )
 
     if not prompt:
         return "Please provide a prompt in the query string.", 400
@@ -67,4 +71,8 @@ def prompt():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=8080,
+        debug=True,
+    )
