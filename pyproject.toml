@@ -1,7 +1,7 @@
 [project]
 name = "bedit-backend"
-version = "0.1.1"
-description = "Default template for PDM package"
+version = "0.1.2"
+description = "Backend for BEdit, a AI-powered rich editor."
 authors = [
     { name = "thoulee", email = "thou_lee@outlook.com" },
 ]
