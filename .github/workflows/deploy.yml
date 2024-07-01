@@ -1,0 +1,30 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+ 
+name: Flask API Deploy
+ 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+ 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Deploy to server
+      uses: appleboy/ssh-action@master
+      with:   #  参考：https://github.com/marketplace/actions/ssh-remote-commands
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        KEY: ${{ secrets.SSHKEY }}
+        PORT: ${{ secrets.PORT }}
+        script: |           # 这里根据自己项目写自己实际需要执行的脚本，其实就是pull代码启动server
+          cd /root/repos/bedit-backend/src/bedit_backend
+          git pull
+          pdm install
+          systemctl restart uwsgi.service

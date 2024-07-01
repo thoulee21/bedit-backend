@@ -1,10 +1,14 @@
 {
     "cSpell.words": [
         "aistudio",
+        "appleboy",
+        "bedit",
         "erniebot",
         "levelname",
         "levelno",
-        "sanic"
+        "sanic",
+        "SSHKEY",
+        "uwsgi"
     ],
     "python.analysis.typeCheckingMode": "off",
     "python.analysis.autoImportCompletions": true
