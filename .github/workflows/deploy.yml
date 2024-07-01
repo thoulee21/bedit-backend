@@ -5,17 +5,11 @@ name: Flask API Deploy
  
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ deploy ]
  
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
     - name: Deploy to server
       uses: appleboy/ssh-action@master
       with:   #  参考：https://github.com/marketplace/actions/ssh-remote-commands
@@ -26,5 +20,6 @@ jobs:
         script: |           # 这里根据自己项目写自己实际需要执行的脚本，其实就是pull代码启动server
           cd /root/repos/bedit-backend/src/bedit_backend
           git pull
+          git co deploy
           pdm install
           systemctl restart uwsgi.service
