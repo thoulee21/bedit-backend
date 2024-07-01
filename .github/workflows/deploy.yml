@@ -18,6 +18,6 @@ jobs:
           script: |           # 这里根据自己项目写自己实际需要执行的脚本，其实就是pull代码启动server
             cd /root/repos/bedit-backend/src/bedit_backend
             git pull
-            git co deploy
+            git checkout deploy
             pdm install
             systemctl restart uwsgi.service
