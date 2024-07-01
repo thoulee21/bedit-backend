@@ -2,7 +2,9 @@
 name = "bedit-backend"
 version = "0.1.0"
 description = "Default template for PDM package"
-authors = [{ name = "thoulee", email = "thou_lee@outlook.com" }]
+authors = [
+    { name = "thoulee", email = "thou_lee@outlook.com" },
+]
 dependencies = [
     "erniebot>=0.5.7",
     "flask[async]>=3.0.3",
@@ -10,7 +12,7 @@ dependencies = [
     "flask-cors>=4.0.1",
     "markdown>=3.6",
 ]
-requires-python = "==3.12.*"
+requires-python = ">=3.8"
 readme = "README.md"
 license = { text = "MIT" }
 
