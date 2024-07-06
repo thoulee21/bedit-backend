@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Hello, I'm erniebot API v0.1.2!"
+    return "Hello, I'm erniebot API v0.1.3!"
 
 
 @app.route('/chat')

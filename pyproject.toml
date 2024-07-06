@@ -1,6 +1,6 @@
 [project]
 name = "bedit-backend"
-version = "0.1.2"
+version = "0.1.3"
 description = "Backend for BEdit, a AI-powered rich editor."
 authors = [
     { name = "thoulee", email = "thou_lee@outlook.com" },
