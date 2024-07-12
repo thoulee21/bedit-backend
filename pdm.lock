@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.2"
-content_hash = "sha256:838645741777e58a09a213475e99d2391352c9ae4885fe4f46a4212ee3a81cff"
+content_hash = "sha256:c38c95a8c1ca41ffea5c237def3a22145b95ddbe68594d5886c2074882acef08"
 
 [[package]]
 name = "aiohttp"
@@ -830,6 +830,15 @@ groups = ["default"]
 files = [
     {file = "urllib3-2.2.2-py3-none-any.whl", hash = "sha256:a448b2f64d686155468037e1ace9f2d2199776e17f0a46610480d311f73e3472"},
     {file = "urllib3-2.2.2.tar.gz", hash = "sha256:dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"},
+]
+
+[[package]]
+name = "uwsgi"
+version = "2.0.26"
+summary = ""
+groups = ["default"]
+files = [
+    {file = "uwsgi-2.0.26.tar.gz", hash = "sha256:86e6bfcd4dc20529665f5b7777193cdc48622fb2c59f0a7f1e3dc32b3882e7f9"},
 ]
 
 [[package]]
