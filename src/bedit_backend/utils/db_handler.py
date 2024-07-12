@@ -7,7 +7,10 @@ import pytoml
 
 class DBHandler:
     def __init__(self, collection_name):
-        self.client = pymongo.MongoClient(os.getenv("MONGO_URI"))
+        self.client = pymongo.MongoClient(
+            os.getenv("MONGO_URI"),
+            connect=False
+        )
         with open(Path(os.getcwd()) / "pyproject.toml", "r") as f:
             project_config = pytoml.load(f)
             self.db = self.client[project_config.get('project').get('name')]
