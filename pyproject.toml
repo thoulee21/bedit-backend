@@ -12,8 +12,9 @@ dependencies = [
     "flask-cors>=4.0.1",
     "markdown>=3.6",
     "rpds-py>=0.18.1",
+    "uwsgi>=2.0.26",
 ]
-requires-python = "==3.10.*"
+requires-python = ">=3.10.*"
 readme = "README.md"
 license = { text = "MIT" }
 
