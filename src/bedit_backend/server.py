@@ -21,7 +21,7 @@ def index():
 
 
 @app.route('/chat', methods=['POST'])
-@cross_origin()
+@cross_origin(methods=['POST'])
 def chat_prompt():
     prompt = request.json.get("prompt")
     stream = request.json.get("stream", False)
