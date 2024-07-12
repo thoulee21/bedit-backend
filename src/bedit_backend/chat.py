@@ -10,7 +10,7 @@ erniebot.access_token = os.environ.get("ERNIEBOT_ACCESS_TOKEN")
 def chat(prompt: str, stream: bool = False, former_messages: list = []):
     response = erniebot.ChatCompletion.create(
         # ernie-4.0, ernie-3.5, ernie-turbo
-        model="ernie-3.5",
+        model="ernie-4.0",
         stream=stream,
         messages=[
             *init_msgs,
