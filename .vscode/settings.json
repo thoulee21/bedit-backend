@@ -6,6 +6,7 @@
         "erniebot",
         "levelname",
         "levelno",
+        "pytoml",
         "sanic",
         "SSHKEY",
         "uwsgi"
