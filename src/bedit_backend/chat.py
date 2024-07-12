@@ -2,6 +2,9 @@ import os
 
 import erniebot
 from init_msgs import init_msgs
+from utils.db_handler import DBHandler
+
+mongodb = DBHandler('ChatResponse')
 
 erniebot.api_type = "aistudio"
 erniebot.access_token = os.environ.get("ERNIEBOT_ACCESS_TOKEN")
@@ -29,4 +32,5 @@ def chat(prompt: str, stream: bool = False, former_messages: list = []):
     if stream:
         return generate()
     else:
+        mongodb.insert(response.to_dict())
         return response.get_result()
