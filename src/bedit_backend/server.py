@@ -1,5 +1,7 @@
 import json
+from pathlib import Path
 
+import pytoml
 from chat import chat
 from flask import Flask, Response, request, stream_with_context
 from flask_cors import cross_origin
@@ -8,23 +10,24 @@ from utils.loguru_logger import logger
 
 app = Flask(__name__)
 
+with open(Path(__file__).parent.parent.parent / "pyproject.toml", "r") as f:
+    app.config.update(pytoml.load(f))
+
 
 @app.route('/')
 def index():
-    return "Hello, I'm erniebot API v0.1.3!"
+    return f"Hello, I'm erniebot API v{app.config.get('project').get('version')}!"
 
 
-@app.route('/chat')
+@app.route('/chat', methods=['POST'])
 @cross_origin()
 def chat_prompt():
-    prompt = request.args.get("prompt")
-    stream_raw = request.args.get("stream", 'false')
-    # preferred to be false by default
-    stream = stream_raw.lower() in ['true', '1', 'yes', 'y', 't']
-    html_raw = request.args.get("html", 'false')
-    html_enabled = html_raw.lower() in ['true', '1', 'yes', 'y', 't']
+    prompt = request.json.get("prompt")
+    stream = request.json.get("stream", False)
+    html_enabled = request.json.get("html", False)
 
-    logger.info(json.dumps(request.args.to_dict(), ensure_ascii=False))
+    logger.info(json.dumps(request.json, ensure_ascii=False))
+
     if not prompt:
         return "Please provide a prompt in the query string.", 400
 
