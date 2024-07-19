@@ -10,7 +10,7 @@ erniebot.api_type = "aistudio"
 erniebot.access_token = os.environ.get("ERNIEBOT_ACCESS_TOKEN")
 
 
-def chat(prompt: str, stream: bool = False, former_messages: list = []):
+def chat(prompt: str, stream: bool = False, former_messages: list = [dict]):
     response = erniebot.ChatCompletion.create(
         # ernie-4.0, ernie-3.5, ernie-turbo
         model="ernie-3.5",
