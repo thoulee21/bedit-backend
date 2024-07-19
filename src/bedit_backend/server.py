@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytoml
 from chat import chat
-from flask import Flask, Response, request, stream_with_context
+from flask import Flask, Response, redirect, request, stream_with_context
 from flask_cors import cross_origin
 from markdown import markdown
 from utils.loguru_logger import logger
@@ -20,10 +20,15 @@ def index():
     return f"Hello, I'm erniebot API v{app.config.get('project').get('version')}!"
 
 
-@app.route('/chat', methods=['POST'])
-@cross_origin(methods=['POST'])
+@app.route('/chat', methods=['POST', 'GET'])
+@cross_origin(methods=['POST', 'GET'])
 def chat_prompt():
+    if request.method == 'GET':
+        return redirect('/')
+
     prompt = request.json.get("prompt")
+    former_messages = request.json.get("messages", [])
+
     stream = request.json.get("stream", False)
     html_enabled = request.json.get("html", False)
 
@@ -33,10 +38,10 @@ def chat_prompt():
         return "Please provide a prompt in the query string.", 400
 
     if stream:
-        generate = chat(prompt, stream)
+        generate = chat(prompt, stream, former_messages)
         return Response(stream_with_context(generate))
     else:
-        response = chat(prompt, stream)
+        response = chat(prompt, stream, former_messages)
 
         if html_enabled:
             return markdown(response)
