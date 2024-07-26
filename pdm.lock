@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:f14be7b66e6faeaec2b0d11f26fec06d57c2c4713195f394c7111690930c2678"
+content_hash = "sha256:239f336da1ea43039600cfde887c1433c9398fca2d2b998e4117d2709257fcdf"
 
 [[metadata.targets]]
 requires_python = "==3.10.*"
@@ -105,7 +105,6 @@ version = "4.0.3"
 requires_python = ">=3.7"
 summary = "Timeout context manager for asyncio programs"
 groups = ["default"]
-marker = "python_version < \"3.11\""
 dependencies = [
     "typing-extensions>=3.6.5; python_version < \"3.8\"",
 ]
@@ -348,7 +347,6 @@ version = "1.2.2"
 requires_python = ">=3.7"
 summary = "Backport of PEP 654 (exception groups)"
 groups = ["default"]
-marker = "python_version < \"3.11\""
 files = [
     {file = "exceptiongroup-1.2.2-py3-none-any.whl", hash = "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b"},
     {file = "exceptiongroup-1.2.2.tar.gz", hash = "sha256:47c2edf7c6738fafb49fd34290706d1a1a2f4d1c6df275526b62cbb4aa5393cc"},
@@ -1494,6 +1492,7 @@ name = "uwsgi"
 version = "2.0.26"
 summary = ""
 groups = ["default"]
+marker = "sys_platform != \"win32\""
 files = [
     {file = "uwsgi-2.0.26.tar.gz", hash = "sha256:86e6bfcd4dc20529665f5b7777193cdc48622fb2c59f0a7f1e3dc32b3882e7f9"},
 ]
