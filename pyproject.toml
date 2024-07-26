@@ -18,6 +18,7 @@ dependencies = [
     "paddlepaddle>=2.6.1",
     "paddleocr>=2.8.1",
     "setuptools>=71.1.0",
+    "opencv-python-headless>=4.10.0.84",
 ]
 requires-python = "==3.10.*"
 readme = "README.md"
