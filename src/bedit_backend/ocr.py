@@ -12,3 +12,10 @@ def get_img_text(img_file: bytes):
     for res in result:
         for line in res:
             yield line[1][0]
+
+
+if __name__ == '__main__':
+    with open('ppocr_img/imgs/11.jpg', 'rb') as f:
+        img_file = f.read()
+        for text in get_img_text(img_file):
+            print(text)
