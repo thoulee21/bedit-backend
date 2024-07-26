@@ -1,7 +1,7 @@
 import os
 
 import erniebot
-from init_msgs import init_msgs
+from utils.init_msgs import init_msgs
 from utils.db_handler import DBHandler
 
 mongodb = DBHandler('ChatResponse')

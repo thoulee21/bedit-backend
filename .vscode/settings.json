@@ -6,6 +6,8 @@
         "erniebot",
         "levelname",
         "levelno",
+        "paddleocr",
+        "ppocr",
         "pytoml",
         "sanic",
         "SSHKEY",

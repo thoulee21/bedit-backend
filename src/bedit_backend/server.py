@@ -7,6 +7,7 @@ from chat import chat
 from flask import Flask, Response, redirect, request, stream_with_context
 from flask_cors import cross_origin
 from markdown import markdown
+from ocr import get_img_text
 from utils.loguru_logger import logger
 
 app = Flask(__name__)
@@ -35,7 +36,7 @@ def chat_prompt():
     logger.info(json.dumps(request.json, ensure_ascii=False))
 
     if not prompt:
-        return "Please provide a prompt in the query string.", 400
+        return "Please provide a prompt in request.", 400
 
     if stream:
         generate = chat(prompt, stream, former_messages)
@@ -47,6 +48,17 @@ def chat_prompt():
             return markdown(response)
         else:
             return response
+
+
+@app.route('/ocr', methods=['POST'])
+@cross_origin(methods=['POST'])
+def ocr():
+    img_data = request.get_data()
+    if not img_data:
+        return "Please provide an image in request.", 400
+
+    response = get_img_text(img_data)
+    return list(response)
 
 
 if __name__ == '__main__':
