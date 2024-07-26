@@ -15,6 +15,9 @@ dependencies = [
     "pymongo[srv]>=4.8.0",
     "pytoml>=0.1.21",
     "uwsgi>=2.0.26",
+    "paddlepaddle>=2.6.1",
+    "paddleocr>=2.8.1",
+    "setuptools>=71.1.0",
 ]
 requires-python = "==3.10.*"
 readme = "README.md"

@@ -162,3 +162,6 @@ cython_debug/
 #.idea/
 
 *.pid
+
+ppocr_img/
+*.jpg
