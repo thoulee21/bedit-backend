@@ -36,7 +36,7 @@ def chat_prompt():
     logger.info(json.dumps(request.json, ensure_ascii=False))
 
     if not prompt:
-        return "Please provide a prompt in the query string.", 400
+        return "Please provide a prompt in request.", 400
 
     if stream:
         generate = chat(prompt, stream, former_messages)
