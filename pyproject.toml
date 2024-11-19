@@ -14,7 +14,6 @@ dependencies = [
     "rpds-py>=0.18.1",
     "pymongo[srv]>=4.8.0",
     "pytoml>=0.1.21",
-    "uwsgi>=2.0.26; sys_platform != 'win32'",
     "paddlepaddle>=2.6.1",
     "paddleocr>=2.8.1",
     "setuptools>=71.1.0",
