@@ -7,9 +7,7 @@ authors = [
 ]
 dependencies = [
     "erniebot>=0.5.7",
-    "flask[async]>=3.0.3",
     "loguru>=0.7.2",
-    "flask-cors>=4.0.1",
     "markdown>=3.6",
     "rpds-py>=0.18.1",
     "pymongo[srv]>=4.8.0",
@@ -17,6 +15,7 @@ dependencies = [
     "paddlepaddle>=2.6.1",
     "paddleocr>=2.8.1",
     "setuptools>=71.1.0",
+    "django>=5.1.3",
 ]
 requires-python = "==3.10.*"
 readme = "README.md"
@@ -28,3 +27,4 @@ distribution = false
 
 [tool.pdm.scripts]
 server = "python ./src/bedit_backend/server.py"
+prod = "gunicorn bedit_backend.wsgi:application --bind 0.0.0.0:8000"

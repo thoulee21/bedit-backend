@@ -9,9 +9,11 @@
         "paddleocr",
         "ppocr",
         "pytoml",
+        "rpds",
         "sanic",
         "SSHKEY",
-        "uwsgi"
+        "uwsgi",
+        "wsgi"
     ],
     "python.analysis.typeCheckingMode": "off",
     "python.analysis.autoImportCompletions": true
