@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pdm run prod
+pdm run start

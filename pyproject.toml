@@ -28,5 +28,5 @@ license = { text = "MIT" }
 distribution = false
 
 [tool.pdm.scripts]
-server = "python ./src/bedit_backend/server.py"
-prod = "waitress-serve --host 127.0.0.1 --port 8080 src.bedit_backend.server:app"
+dev = "python ./src/bedit_backend/server.py"
+start = "waitress-serve --listen=*:8080 src.bedit_backend.server:app"
