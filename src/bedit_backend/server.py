@@ -12,7 +12,7 @@ from bedit_backend.utils.loguru_logger import logger
 
 app = Flask(__name__)
 
-with open(Path(os.getcwd()).parent.parent / "pyproject.toml", "r") as f:
+with open(Path(os.getcwd()) / "pyproject.toml", "r") as f:
     app.config.update(pytoml.load(f))
 
 

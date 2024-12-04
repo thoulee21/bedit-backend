@@ -11,7 +11,7 @@ class DBHandler:
             os.getenv("MONGO_URI"),
             connect=False
         )
-        with open(Path(os.getcwd()).parent.parent / "pyproject.toml", "r") as f:
+        with open(Path(os.getcwd()) / "pyproject.toml", "r") as f:
             project_config = pytoml.load(f)
             self.db = self.client[project_config.get('project').get('name')]
         self.collection = self.db[collection_name]
