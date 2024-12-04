@@ -2,7 +2,7 @@ name: Flask API Deployment
  
 on:
   push:
-    branches: deploy 
+    branches: main 
  
 jobs:
   deploy:
@@ -16,8 +16,8 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
           script: |           # 这里根据自己项目写自己实际需要执行的脚本，其实就是pull代码启动server
-            cd /root/repos/bedit-backend/src/bedit_backend
+            cd /root/repos/bedit-backend
             git pull
-            git checkout deploy
+            git checkout main
             pdm install
-            systemctl restart uwsgi.service
+            
