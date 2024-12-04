@@ -23,10 +23,16 @@ requires-python = "==3.10.*"
 readme = "README.md"
 license = { text = "MIT" }
 
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = false
+package-dir = "src"
+source-includes = ["src/**/*.py"]
 
 [tool.pdm.scripts]
-dev = "python ./src/bedit_backend/server.py"
-start = "waitress-serve --listen=*:8080 src.bedit_backend.server:app"
+dev = {cmd = "python -m src.bedit_backend.server"}
+start = {cmd = "waitress-serve --listen=*:8080 src.bedit_backend.server:app"}
+install-dev = "pip install -e ."
