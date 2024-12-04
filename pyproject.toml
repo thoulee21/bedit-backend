@@ -17,6 +17,7 @@ dependencies = [
     "paddlepaddle>=2.6.1",
     "paddleocr>=2.8.1",
     "setuptools>=71.1.0",
+    "waitress>=3.0.2",
 ]
 requires-python = "==3.10.*"
 readme = "README.md"
@@ -28,3 +29,4 @@ distribution = false
 
 [tool.pdm.scripts]
 server = "python ./src/bedit_backend/server.py"
+prod = "waitress-serve --host 127.0.0.1 --port 8080 src.bedit_backend.server:app"
