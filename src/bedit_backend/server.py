@@ -3,12 +3,12 @@ import os
 from pathlib import Path
 
 import pytoml
-from chat import chat
+from bedit_backend.chat import chat
 from flask import Flask, Response, redirect, request, stream_with_context
 from flask_cors import cross_origin
 from markdown import markdown
-from ocr import get_img_text
-from utils.loguru_logger import logger
+from bedit_backend.ocr import get_img_text
+from bedit_backend.utils.loguru_logger import logger
 
 app = Flask(__name__)
 
@@ -25,6 +25,7 @@ def index():
 @cross_origin(methods=['POST', 'GET'])
 def chat_prompt():
     if request.method == 'GET':
+        logger.info("/chat GET request received")
         return redirect('/')
 
     prompt = request.json.get("prompt")
