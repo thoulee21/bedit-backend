@@ -3,12 +3,12 @@ import os
 from pathlib import Path
 
 import pytoml
-from bedit_backend.chat import chat
+from src.bedit_backend.chat import chat
 from flask import Flask, Response, redirect, request, stream_with_context
 from flask_cors import cross_origin
 from markdown import markdown
-from bedit_backend.ocr import get_img_text
-from bedit_backend.utils.loguru_logger import logger
+from src.bedit_backend.ocr import get_img_text
+from src.bedit_backend.utils.loguru_logger import logger
 
 app = Flask(__name__)
 
